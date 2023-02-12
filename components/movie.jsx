@@ -6,16 +6,12 @@ export const Movie = (props) => {
       <Image
         style={styles.image}
         source={{
-          uri: "https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/Breaking_Dawn_Part_1_Poster.jpg/220px-Breaking_Dawn_Part_1_Poster.jpg",
+          height: 150,
+          width: 100,
+          uri: props.image,
         }}
       />
-      <View style={styles.body}>
-        <Text style={styles.title}>{props.title}</Text>
-        <Text style={styles.description}>{props.description}</Text>
-      </View>
-      <View style={styles.button}>
-        <Button title="Watch Now" color={"#ff9409"}></Button>
-      </View>
+      <Text style={styles.title}>{props.title}</Text>
     </View>
   );
 };
@@ -23,40 +19,21 @@ export const Movie = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "column",
+    justifyContent: "space-around",
+    width: 120,
+    height: "auto",
+    paddingHorizontal: "5%",
+    paddingVertical: "5%",
   },
   image: {
-    flex: 7,
-    paddingHorizontal: "1%",
-    paddingVertical: "5%",
-    height: "auto",
-    borderRadius: 5,
+    flex: 1,
   },
-  body: {
-    flex: 3,
-    backgroundColor: "#02091e",
-    borderTopLeftRadius: 5,
-    borderTopRightRadius: 5,
-    paddingHorizontal: "4%",
-    paddingVertical: "3%",
-  },
+
   title: {
-    flex: 2,
-    fontSize: 35,
+    flex: 1,
+    fontSize: 16,
     fontWeight: "bold",
     fontFamily: "monospace",
     color: "#ffffff",
-    alignContent: "center",
-  },
-  description: {
-    flex: 3,
-    fontSize: 16,
-    fontFamily: "monospace",
-
-    color: "#fff",
-  },
-  button: {
-    flex: 1,
-    color: "#ff9409",
   },
 });

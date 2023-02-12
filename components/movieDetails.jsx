@@ -6,7 +6,7 @@ export const MovieDetails = (props) => {
       <Image
         style={styles.image}
         source={{
-          uri: "https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/Breaking_Dawn_Part_1_Poster.jpg/220px-Breaking_Dawn_Part_1_Poster.jpg",
+          uri: props.image,
         }}
       />
       <View style={styles.body}>
