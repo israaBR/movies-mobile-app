@@ -1,32 +1,51 @@
-import { StyleSheet, Button, Image, Text, View } from "react-native";
+import {
+  StyleSheet,
+  Button,
+  Image,
+  Text,
+  View,
+  TouchableOpacity,
+} from "react-native";
 
-export const Movie = (props) => {
+export const Movie = ({ navigation, title, image, description }) => {
   return (
-    <View style={styles.container}>
-      <Image
-        style={styles.image}
-        source={{
-          height: 150,
-          width: 100,
-          uri: props.image,
-        }}
-      />
-      <Text style={styles.title}>{props.title}</Text>
-    </View>
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate("Movie Details", {
+          title,
+          image,
+          description,
+        });
+      }}
+    >
+      <View style={styles.container}>
+        <Image
+          style={styles.image}
+          source={{
+            height: 150,
+            width: 100,
+            uri: image,
+          }}
+        />
+        <Text style={styles.title}>{title}</Text>
+      </View>
+    </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     width: "30%",
-    paddingVertical: "5%",
+    paddingVertical: "3%",
+    // alignItems: "center",
   },
   image: {
     flex: 1,
   },
   title: {
     flex: 1,
-    fontSize: 16,
+    width: 100,
+    fontSize: 12,
     fontWeight: "bold",
     fontFamily: "monospace",
     color: "#ffffff",

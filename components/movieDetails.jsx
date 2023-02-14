@@ -1,17 +1,26 @@
-import { StyleSheet, Button, Image, Text, View } from "react-native";
+import {
+  StyleSheet,
+  Button,
+  Image,
+  Text,
+  View,
+  ScrollView,
+} from "react-native";
 
-export const MovieDetails = (props) => {
+export const MovieDetails = ({ route }) => {
   return (
-    <View style={StyleSheet.container}>
+    <View style={styles.container}>
       <Image
         style={styles.image}
         source={{
-          uri: props.image,
+          uri: route.params.image,
         }}
       />
       <View style={styles.body}>
-        <Text style={styles.title}>{props.title}</Text>
-        <Text style={styles.description}>{props.description}</Text>
+        <ScrollView>
+          <Text style={styles.title}>{route.params.title}</Text>
+          <Text style={styles.description}>{route.params.description}</Text>
+        </ScrollView>
       </View>
       <View style={styles.button}>
         <Button title="Watch Now" color={"#ff9409"}></Button>
